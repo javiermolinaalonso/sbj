@@ -6,7 +6,7 @@ import com.socialblackjack.game.entities.Player;
 import com.socialblackjack.game.entities.GameTable;
 import com.socialblackjack.game.exceptions.InvalidSeatException;
 
-public interface TableDao {
+public interface GameTableDao {
 
 	public void createTable(GameTable table);
 	
@@ -65,4 +65,11 @@ public interface TableDao {
 	 * @return
 	 */
 	public List<GameTable> getTables();
+
+	/**
+	 * Return the GameTable identified by ID
+	 * @param tableId
+	 * @return
+	 */
+	public GameTable getTableById(Integer tableId);
 }

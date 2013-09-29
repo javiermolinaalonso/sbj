@@ -6,5 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="com.socialblackjack.game.entities.GameTable" />
+        <mapping class="com.socialblackjack.game.entities.Player" />
+        <mapping class="com.socialblackjack.game.entities.GameTablePlayer" />
     </session-factory>
 </hibernate-configuration>

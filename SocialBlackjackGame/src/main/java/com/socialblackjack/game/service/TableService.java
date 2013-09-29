@@ -17,6 +17,14 @@ public interface TableService {
 	public GameTable getTable(String table);
 	
 	/**
+	 * Retrieves the specified table identified by id
+	 * @param table
+	 * @return
+	 * @throws TableNotFoundException if the specified table does not exist
+	 */
+	public GameTable getTableById(Integer id);
+	
+	/**
 	 * Retrieve all the players who are sitting at the table.
 	 * Sit means that are in SITTING, PLAYING or SITTINGOUT
 	 * @param table

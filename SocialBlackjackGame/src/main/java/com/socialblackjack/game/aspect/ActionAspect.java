@@ -50,30 +50,30 @@ public class ActionAspect {
 		BlackjackGame game = ((BlackjackGameImpl)joinPoint.getTarget());
 		Object result = null;
 		if(bjAction.action().equals(GameOptionsEnumeration.INSURANCE)){
-			System.out.println("The player "+player.getName()+ " has made "+bjAction.action().toString());
+			System.out.println("The player "+player.getFirstName()+ " has made "+bjAction.action().toString());
 			if(game.getGameOptions(player).contains(GameOptionsEnumeration.INSURANCE)){
 				joinPoint.proceed();
 			}else{
-				System.out.println("The player "+player.getName()+ " has made "+bjAction.action().toString()+" but it is not available");
+				System.out.println("The player "+player.getFirstName()+ " has made "+bjAction.action().toString()+" but it is not available");
 			}
 		}else{
 			if(game.isActionAvailable(hand, bjAction.action())){
-				System.out.println("The player "+player.getName()+ " has made "+bjAction.action().toString()+" with the hand "+hand.toString());
+				System.out.println("The player "+player.getFirstName()+ " has made "+bjAction.action().toString()+" with the hand "+hand.toString());
 				result = joinPoint.proceed();
 				if(bjAction.action().equals(GameOptionsEnumeration.SPLIT)){
 					List<BlackjackHand> hands = (List<BlackjackHand>)result;
 					for(BlackjackHand bjhand : hands){
 						List<GameOptionsEnumeration> options = game.updateHandOptions(player, bjhand);
-						System.out.println("The player "+player.getName()+ " has made "+bjAction.action().toString()+" and the result was "+bjhand.toString()+". New options are "+options.toString());
+						System.out.println("The player "+player.getFirstName()+ " has made "+bjAction.action().toString()+" and the result was "+bjhand.toString()+". New options are "+options.toString());
 						game.updateDoneActions(bjhand, bjAction.action());
 					}
 				}else{
 					List<GameOptionsEnumeration> options = game.updateHandOptions(player, hand);
-					System.out.println("The player "+player.getName()+ " has made "+bjAction.action().toString()+" and the result was "+hand.toString()+". New options are "+options.toString());
+					System.out.println("The player "+player.getFirstName()+ " has made "+bjAction.action().toString()+" and the result was "+hand.toString()+". New options are "+options.toString());
 					game.updateDoneActions(hand, bjAction.action());
 				}
 			}else{
-				System.out.println("The player "+player.getName()+ " has made "+bjAction.action().toString()+" with the hand "+hand.toString() + " but it is not available");
+				System.out.println("The player "+player.getFirstName()+ " has made "+bjAction.action().toString()+" with the hand "+hand.toString() + " but it is not available");
 			}
 		}
 		System.out.println();

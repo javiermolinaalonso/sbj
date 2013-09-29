@@ -10,5 +10,5 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"file:src/test/resources/MongoDBContext.xml"})
 public abstract class AbstractTableDaoTest {
 
-	@Inject protected TableDao tableDao;
+	@Inject protected GameTableDao tableDao;
 }

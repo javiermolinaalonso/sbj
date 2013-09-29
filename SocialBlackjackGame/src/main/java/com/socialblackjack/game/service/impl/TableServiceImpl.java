@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.socialblackjack.game.PlayerStatusEnumeration;
-import com.socialblackjack.game.dao.TableDao;
+import com.socialblackjack.game.dao.GameTableDao;
 import com.socialblackjack.game.entities.GameTable;
 import com.socialblackjack.game.entities.Player;
 import com.socialblackjack.game.impl.GameImpl;
@@ -22,7 +22,7 @@ public class TableServiceImpl implements TableService {
 
 	private static final Logger logger = Logger.getLogger(TableServiceImpl.class);
 
-	@Inject private TableDao tableDao;
+	@Inject private GameTableDao tableDao;
 	
 	public List<GameTable> getTables() {
 		return tableDao.getTables();
@@ -30,6 +30,10 @@ public class TableServiceImpl implements TableService {
 	
 	public GameTable getTable(String table) {
 		return tableDao.getTable(table);
+	}
+	
+	public GameTable getTableById(Integer tableId) {
+		return tableDao.getTableById(tableId);
 	}
 
 	public boolean isTableFull(String table) {
@@ -82,7 +86,7 @@ public class TableServiceImpl implements TableService {
 
 	public String generateUniqueToken(String table, Player player, Long tst) {
 		StringBuffer tokenBuffer = new StringBuffer();
-		tokenBuffer.append(player.getName());
+		tokenBuffer.append(player.getFirstName());
 		tokenBuffer.append(table);
 		tokenBuffer.append(tst);
 		String token = tokenBuffer.toString();
