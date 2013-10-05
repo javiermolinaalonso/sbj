@@ -4,6 +4,7 @@ CREATE TABLE game_table
   minimum_bet double precision NOT NULL DEFAULT 0,
   maximum_bet double precision NOT NULL DEFAULT 0,
   max_players integer NOT NULL DEFAULT 6,
+  "name" character varying(25) NOT NULL,
   CONSTRAINT table_pkey PRIMARY KEY (id),
   CONSTRAINT max_bet_higher_than_min_bet CHECK (maximum_bet > minimum_bet)
 )

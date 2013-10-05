@@ -40,7 +40,7 @@ public interface GameTableDao {
 	 * @param seat The seat number identifier. 
 	 * @throws InvalidSeatException if the seat does not specify any seat
 	 */
-	public void addPlayerToPlay(String playerToken, String table, Integer seat);
+	public void addPlayerToPlay(Player player, GameTable table, Integer seat);
 	
 	/**
 	 * The player is going to change its status to SITOUT at the end of the round

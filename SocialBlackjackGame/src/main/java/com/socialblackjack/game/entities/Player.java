@@ -90,6 +90,15 @@ public class Player {
 		this.nickname = nickname;
 	}
 
+	@Override
+	public boolean equals(Object obj){
+		Player p = (Player)obj;
+		if(getId() != null) {
+			return getId().equals(p.getId());
+		}else{
+			return false;
+		}
+	}
 	@Transient
 	public PlayerStatusEnumeration getStatus() {
 		return status;

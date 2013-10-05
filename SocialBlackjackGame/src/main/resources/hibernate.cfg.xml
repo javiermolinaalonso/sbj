@@ -8,5 +8,6 @@
         <mapping class="com.socialblackjack.game.entities.GameTable" />
         <mapping class="com.socialblackjack.game.entities.Player" />
         <mapping class="com.socialblackjack.game.entities.GameTablePlayer" />
+        <mapping class="com.socialblackjack.game.entities.PlayerSession" />
     </session-factory>
 </hibernate-configuration>

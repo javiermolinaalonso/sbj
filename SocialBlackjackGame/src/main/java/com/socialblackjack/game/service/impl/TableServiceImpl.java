@@ -10,8 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.socialblackjack.game.PlayerStatusEnumeration;
 import com.socialblackjack.game.dao.GameTableDao;
+import com.socialblackjack.game.dao.PlayerDao;
 import com.socialblackjack.game.entities.GameTable;
 import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.game.enumerations.PlayerExceptionCodeEnum;
+import com.socialblackjack.game.enumerations.TableExceptionCodeEnum;
+import com.socialblackjack.game.exceptions.PlayerException;
+import com.socialblackjack.game.exceptions.TableException;
 import com.socialblackjack.game.impl.GameImpl;
 import com.socialblackjack.game.service.TableService;
 import com.socialblackjack.utils.StringUtils;
@@ -20,18 +25,22 @@ import com.socialblackjack.utils.StringUtils;
 @Transactional
 public class TableServiceImpl implements TableService {
 
-	private static final Logger logger = Logger.getLogger(TableServiceImpl.class);
+	private static final Logger logger = Logger
+			.getLogger(TableServiceImpl.class);
 
-	@Inject private GameTableDao tableDao;
-	
+	@Inject
+	private GameTableDao tableDao;
+	@Inject
+	private PlayerDao playerDao;
+
 	public List<GameTable> getTables() {
 		return tableDao.getTables();
 	}
-	
+
 	public GameTable getTable(String table) {
 		return tableDao.getTable(table);
 	}
-	
+
 	public GameTable getTableById(Integer tableId) {
 		return tableDao.getTableById(tableId);
 	}
@@ -39,9 +48,9 @@ public class TableServiceImpl implements TableService {
 	public boolean isTableFull(String table) {
 		int count = 0;
 		List<Player> players = getPlayers(table);
-		for(Player p : players){
+		for (Player p : players) {
 			PlayerStatusEnumeration playerStatus = p.getStatus();
-			if(playerStatus.isOccupingSeat()){
+			if (playerStatus.isOccupingSeat()) {
 				count++;
 			}
 		}
@@ -65,7 +74,20 @@ public class TableServiceImpl implements TableService {
 	}
 
 	public void addPlayerToPlay(String playerToken, String table, Integer seat) {
-		tableDao.addPlayerToPlay(playerToken, table, seat);
+		GameTable t = tableDao.getTable(table);
+		if (t == null) {
+			throw new TableException(TableExceptionCodeEnum.GT001);
+		}
+		Player player = playerDao.loadPlayer(playerToken);
+		if (player == null) {
+			throw new PlayerException(PlayerExceptionCodeEnum.P001);
+		}
+		// Is the player in the table?
+		List<Player> playersInTable = getPlayers(table);
+		if (playersInTable.contains(player)) {
+			return;
+		}
+		tableDao.addPlayerToPlay(player, t, seat);
 	}
 
 	public void sitOutPlayer(String playerToken, String table) {
@@ -90,9 +112,10 @@ public class TableServiceImpl implements TableService {
 		tokenBuffer.append(table);
 		tokenBuffer.append(tst);
 		String token = tokenBuffer.toString();
-		try{
-			return StringUtils.encodeBytes(token.getBytes(), StringUtils.HASHING_SHA256);
-		}catch(Exception e){
+		try {
+			return StringUtils.encodeBytes(token.getBytes(),
+					StringUtils.HASHING_SHA256);
+		} catch (Exception e) {
 			logger.error("Error while generating the signature", e);
 			return null;
 		}

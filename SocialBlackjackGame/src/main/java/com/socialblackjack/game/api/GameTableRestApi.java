@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.socialblackjack.game.entities.GameTable;
@@ -16,7 +17,7 @@ import com.socialblackjack.game.service.TableService;
 
 @Controller 
 @RequestMapping("/v01/rest/")
-public class GameTableRestApi {
+public class GameTableRestApi implements GameTableApi {
 
 	@Inject private TableService tableService;
 	
@@ -26,12 +27,19 @@ public class GameTableRestApi {
 	}
 	
 	@RequestMapping(value="gametables/{gameTableId}", method=RequestMethod.GET, produces = "application/json")
-	public @ResponseBody GameTable getTables(@PathVariable("gameTableId") Integer tableId){
+	public @ResponseBody GameTable getTable(@PathVariable("gameTableId") Integer tableId){
 		return tableService.getTableById(tableId);
 	}
 	
 	@RequestMapping(value="gametables/{gameTableStr}/players", method=RequestMethod.GET, produces = "application/json")
 	public @ResponseBody List<Player> getPlayersInTable(@PathVariable("gameTableStr") String table){
 		return tableService.getPlayers(table);
+	}
+
+	@Override
+	@RequestMapping(value="gametables/{gameTableStr}/seat/{seatId}", method=RequestMethod.GET, produces = "application/json")
+	public @ResponseBody Boolean joinPlayer(@PathVariable("gameTableStr") String table, @RequestParam("token") String playerToken, @PathVariable("seatId") Integer seat) {
+		tableService.addPlayerToPlay(playerToken, table, seat);
+		return true;
 	}
 }
