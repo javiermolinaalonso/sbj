@@ -58,7 +58,7 @@ public class GameTablePlayer {
 	public void setEntryDate(Date entryDate) {
 		this.entryDate = entryDate;
 	}
-	@Column(name="exitDate")
+	@Column(name="exit_date")
 	public Date getExitDate() {
 		return exitDate;
 	}

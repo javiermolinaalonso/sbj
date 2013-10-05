@@ -26,7 +26,12 @@ public class GameTableDaoImpl implements GameTableDao {
 	}
 
 	public List<Player> getPlayers(String table) {
-		String hql = "Select p From GameTablePlayer gtu join gtu.gameTable as g join gtu.player as p where g.name = '"+table+"'";
+		String hql = "" +
+				"Select p " +
+				"From GameTablePlayer gtu " +
+				"join gtu.gameTable as g " +
+				"join gtu.player as p " +
+				"where g.name = '"+table+"' and gtu.exitDate is null";
 		return sessionFactory.getCurrentSession().createQuery(hql).list();
 	}
 
