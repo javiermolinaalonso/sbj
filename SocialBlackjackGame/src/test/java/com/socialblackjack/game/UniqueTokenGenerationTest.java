@@ -19,7 +19,7 @@ public class UniqueTokenGenerationTest {
 	
 	@Test
 	public void test() {
-		Player player = new Player("Javier", 100d);
+		Player player = new Player("Javi", "Molina", "Phoboss", 100d);
 		String tabletoken = "fj983kasjfkzñckvj";
 		Long tst = 234052893475l;
 		

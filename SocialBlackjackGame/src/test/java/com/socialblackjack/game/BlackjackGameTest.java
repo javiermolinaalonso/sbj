@@ -28,31 +28,31 @@ public class BlackjackGameTest {
 
 	@Test
 	public void testAddPlayer() {
-		bj.sitPlayer(new Player("Javi", 100d));
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d));
 		assertEquals(Integer.valueOf(1), bj.getCurrentPlayers());
 	}
 	
 	@Test
 	public void testTableFull() {
-		bj.sitPlayer(new Player("Javi", 100d));
-		bj.sitPlayer(new Player("Javi", 100d));
-		bj.sitPlayer(new Player("Javi", 100d));
-		bj.sitPlayer(new Player("Javi", 100d));
-		bj.sitPlayer(new Player("Javi", 100d));
-		bj.sitPlayer(new Player("Javi", 100d));
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d));
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d));
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d));
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d));
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d));
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d));
 		assertTrue(bj.isTableFull());
 	}
 
 	@Test(expected=TableFullException.class)
 	public void testTableFullExceeded(){
 		testTableFull();
-		bj.sitPlayer(new Player("Forever alone", 1d));
+		bj.sitPlayer(new Player("Forever", "Alone", "Ouch", 1d));
 	}
 	
 	@Test(expected=SeatOccupiedException.class)
 	public void testTableSeatOccupied(){
-		bj.sitPlayer(new Player("Javi", 100d), 1);
-		bj.sitPlayer(new Player("Forever alone", 1d), 1);
+		bj.sitPlayer(new Player("Javi", "Molina", "Phoboss", 100d), 1);
+		bj.sitPlayer(new Player("Forever", "Alone", "Ouch", 1d), 1);
 	}
 }
 

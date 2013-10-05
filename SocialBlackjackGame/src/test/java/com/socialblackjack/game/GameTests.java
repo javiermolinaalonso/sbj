@@ -26,7 +26,7 @@ public class GameTests {
 	@Before
 	public void setup(){
 		game = (BlackjackGameImpl) appContext.getBean("game");
-		player = new Player("Javi", 1000d);
+		player = new Player("Javi", "Molina", "Phoboss", 100d);
 		game.sitPlayer(player);
 		List<GameOptionsEnumeration> list = new ArrayList<GameOptionsEnumeration>();
 		list.add(GameOptionsEnumeration.HIT);
