@@ -1,6 +1,6 @@
 CREATE TABLE player
 (
-  id bigint NOT NULL DEFAULT nextval('user_id_seq'::regclass),
+  id bigserial NOT NULL,
   first_name character varying(80) NOT NULL,
   last_name character varying(160) NOT NULL,
   nickname character varying(20) NOT NULL,

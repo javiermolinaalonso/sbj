@@ -1,6 +1,6 @@
 CREATE TABLE game_table_player
 (
-  id bigint NOT NULL DEFAULT nextval('game_table_user_id_seq'::regclass),
+  id bigserial NOT NULL,
   game_table_id integer,
   user_id bigint,
   entry_date timestamp without time zone,
