@@ -1,10 +1,12 @@
 package com.socialblackjack.hand.impl;
 
+import com.socialblackjack.core.Card;
+import com.socialblackjack.core.Rank;
+import com.socialblackjack.hand.utils.HandUtils;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import com.socialblackjack.core.Card;
 
 public class BlackjackHandPlayer extends BlackjackHandImpl {
 
@@ -22,10 +24,28 @@ public class BlackjackHandPlayer extends BlackjackHandImpl {
 	}
 
 	public boolean isSplittable() {
-		return cards.size() == 2 && cards.get(0).getRankValue().equals(cards.get(1).getRankValue());
+        return haveTwoCards() && bothCardsHaveSameValue();
 	}
-	
-	@Override
+
+    private boolean bothCardsHaveSameValue() {
+        return isBothAces() || isBothCourt() || isBothSameValue();
+    }
+
+    private boolean isBothSameValue() {
+        return cards.get(0).getRank().equals(cards.get(1).getRank());
+    }
+
+    private boolean isBothCourt() {
+        return HandUtils.getValues(cards.get(0).getRank()).get(0).equals(10)
+                && HandUtils.getValues(cards.get(1).getRank()).get(0).equals(10);
+    }
+
+    private boolean isBothAces() {
+        return Rank.ACE.equals(cards.get(0).getRank())
+                && Rank.ACE.equals(cards.get(1).getRank());
+    }
+
+    @Override
 	public String toString(){
 		StringBuffer sb = new StringBuffer();
 		for(Card c : cards){

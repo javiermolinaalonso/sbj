@@ -1,8 +1,12 @@
 package com.socialblackjack.core.impl;
 
 import com.socialblackjack.core.Card;
+import com.socialblackjack.core.Color;
+import com.socialblackjack.core.Rank;
 import com.socialblackjack.core.exceptions.InvalidColorException;
 import com.socialblackjack.core.exceptions.InvalidRankException;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class CardImpl implements Card {
 
@@ -10,16 +14,26 @@ public class CardImpl implements Card {
 	public static final int AMOUNT_COLORS = 4;
 
 	private final byte card;
-	
-	public CardImpl(char rank, char color){
+    private final Rank rank;
+    private final Color color;
+
+    public static Card of(Rank rank, Color color) {
+        return new CardImpl(rank, color);
+    }
+
+	private CardImpl(Rank rank, Color color){
 		card = getCardFromRankAndColor(rank, color);
+        this.rank = rank;
+        this.color = color;
 	}
 
     public CardImpl(byte card){
         this.card = card;
+        this.rank = RANKS[card % CARDS_PER_COLOR];
+        this.color = COLORS[card / CARDS_PER_COLOR % AMOUNT_COLORS];
     }
 
-	private byte getCardFromRankAndColor(char rank, char color) {
+	private byte getCardFromRankAndColor(Rank rank, Color color) {
 		boolean found = false;
 		byte card = 0;
 		for(int i = 0; i < COLORS.length; i++){
@@ -52,18 +66,25 @@ public class CardImpl implements Card {
 		return card % CARDS_PER_COLOR;
 	}
 
-	public String getRank() {
-		return String.valueOf(RANKS[card % CARDS_PER_COLOR]);
+	public Rank getRank() {
+		return rank;
 	}
 
-	public String getColor() {
-		return String.valueOf(COLORS[card / CARDS_PER_COLOR % AMOUNT_COLORS]);
+	public Color getColor() {
+		return color;
 	}
 
-	public String getValue() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(RANKS[card % 13]).append(COLORS[card / CARDS_PER_COLOR % AMOUNT_COLORS]);
-		return sb.toString();
-	}
+    public String getValue() {
+        StringBuffer sb = new StringBuffer(2);
+        return sb.append(rank.getRank()).append(color.getColor()).toString();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
+                .append("rank", rank)
+                .append("color", color)
+                .toString();
+    }
 
 }

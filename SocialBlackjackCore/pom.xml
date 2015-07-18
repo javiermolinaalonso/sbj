@@ -7,4 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 	<artifactId>core</artifactId>
+    <description>
+        This module contain Deck, Hand and Card classes which are essential to develop the game
+    </description>
 </project>

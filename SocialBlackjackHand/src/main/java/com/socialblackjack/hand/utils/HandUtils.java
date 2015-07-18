@@ -1,52 +1,47 @@
 package com.socialblackjack.hand.utils;
 
+import com.socialblackjack.core.Rank;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.socialblackjack.core.Rank.*;
+
 public class HandUtils {
 
-	private static final Map<Integer, List<Integer>> mapCardValue = new HashMap<Integer, List<Integer>>();
+	private static final Map<Rank, List<Integer>> mapCardValue = new HashMap<Rank, List<Integer>>();
     static {
-        mapCardValue.put(0, Arrays.asList(1, 11));
-        mapCardValue.put(1, Arrays.asList(2));
-        mapCardValue.put(2, Arrays.asList(3));
-        mapCardValue.put(3, Arrays.asList(4));
-        mapCardValue.put(4, Arrays.asList(5));
-        mapCardValue.put(5, Arrays.asList(6));
-        mapCardValue.put(6, Arrays.asList(7));
-        mapCardValue.put(7, Arrays.asList(8));
-        mapCardValue.put(8, Arrays.asList(9));
-        mapCardValue.put(9, Arrays.asList(10));
-        mapCardValue.put(10, Arrays.asList(10));
-        mapCardValue.put(11, Arrays.asList(10));
-        mapCardValue.put(12, Arrays.asList(10));
+        mapCardValue.put(ACE, Arrays.asList(1, 11));
+        mapCardValue.put(TWO, Arrays.asList(2));
+        mapCardValue.put(THREE, Arrays.asList(3));
+        mapCardValue.put(FOUR, Arrays.asList(4));
+        mapCardValue.put(FIVE, Arrays.asList(5));
+        mapCardValue.put(SIX, Arrays.asList(6));
+        mapCardValue.put(SEVEN, Arrays.asList(7));
+        mapCardValue.put(EIGHT, Arrays.asList(8));
+        mapCardValue.put(NINE, Arrays.asList(9));
+        mapCardValue.put(TEN, Arrays.asList(10));
+        mapCardValue.put(JACK, Arrays.asList(10));
+        mapCardValue.put(QUEEN, Arrays.asList(10));
+        mapCardValue.put(KING, Arrays.asList(10));
     }
     
-    private static final Map<String, List<Integer>> mapCardRank = new HashMap<String, List<Integer>>();
-    static {
-    	mapCardRank.put("A", Arrays.asList(1, 11));
-    	mapCardRank.put("2", Arrays.asList(2));
-    	mapCardRank.put("3", Arrays.asList(3));
-        mapCardRank.put("4", Arrays.asList(4));
-        mapCardRank.put("5", Arrays.asList(5));
-        mapCardRank.put("6", Arrays.asList(6));
-        mapCardRank.put("7", Arrays.asList(7));
-        mapCardRank.put("8", Arrays.asList(8));
-        mapCardRank.put("9", Arrays.asList(9));
-        mapCardRank.put("T", Arrays.asList(10));
-        mapCardRank.put("J", Arrays.asList(10));
-        mapCardRank.put("Q", Arrays.asList(10));
-        mapCardRank.put("K", Arrays.asList(10));
+    public static List<Integer> getValues(Rank rank){
+    	return mapCardValue.get(rank);
     }
-	
-    public static List<Integer> getValuesFromRank(String rank){
-    	return mapCardRank.get(rank);
-    }
-    
-    public static List<Integer> getValuesFromValue(Integer value){
-    	return mapCardValue.get(value);
+
+    /**
+     * This method is a simplification for not returning always a list. If rank is an ace an exception is thrown
+     * @param rank
+     * @return
+     */
+    public static Integer getValue(Rank rank) {
+        if(ACE.equals(rank)) {
+            throw new IllegalArgumentException("Rank ACE is not allowed here");
+        }
+        return getValues(rank).get(0);
     }
     
 }
