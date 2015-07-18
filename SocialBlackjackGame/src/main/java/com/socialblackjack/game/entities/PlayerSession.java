@@ -1,20 +1,12 @@
 package com.socialblackjack.game.entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.joda.time.DateTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="player_session")
@@ -23,13 +15,13 @@ public class PlayerSession {
 	private Long id;
 	private String token;
 	private Player player;
-	private DateTime loginDate;
-	private DateTime logoutDate;
+	private LocalDateTime loginDate;
+	private LocalDateTime logoutDate;
 	
 	public PlayerSession(Player player) {
 		super();
 		this.player = player;
-		this.loginDate = DateTime.now();
+		this.loginDate = LocalDateTime.now();
 		this.token = this.generateToken();
 	}
 	
@@ -64,20 +56,20 @@ public class PlayerSession {
 	}
 
 	@Column(name="login_date")
-	public DateTime getLoginDate() {
+	public LocalDateTime getLoginDate() {
 		return loginDate;
 	}
 
-	public void setLoginDate(DateTime loginDate) {
+	public void setLoginDate(LocalDateTime loginDate) {
 		this.loginDate = loginDate;
 	}
 
 	@Column(name="logout_date")
-	public DateTime getLogoutDate() {
+	public LocalDateTime getLogoutDate() {
 		return logoutDate;
 	}
 
-	public void setLogoutDate(DateTime logoutDate) {
+	public void setLogoutDate(LocalDateTime logoutDate) {
 		this.logoutDate = logoutDate;
 	}
 

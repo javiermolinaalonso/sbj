@@ -6,54 +6,44 @@
 		<artifactId>Blackjack</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>SocialBlackjackGame</artifactId>
+	<artifactId>game</artifactId>
 	<packaging>war</packaging>
 
-	<properties>
-		<spring.version>3.2.4.RELEASE</spring.version>
-	</properties>
 	<dependencies>
 		<!-- Spring 3 dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -61,69 +51,53 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.6.11</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.11</version>
 		</dependency>
 
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
-			<version>1</version>
 		</dependency>
 
 		<!-- JavaConfig need this library -->
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
-			<version>2.2.2</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-dbcp</artifactId>
-			<version>7.0.41</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.2.2.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jadira.usertype</groupId>
-			<artifactId>usertype.jodatime</artifactId>
-			<version>2.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
-			<version>3.18.0-GA</version>
 		</dependency>
 		<!-- PostgreSQL driver -->
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.1-901.jdbc4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.socialblackjack</groupId>
-			<artifactId>SocialBlackjackHand</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>hand</artifactId>
 		</dependency>
 	</dependencies>
 

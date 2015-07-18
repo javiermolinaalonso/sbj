@@ -1,19 +1,11 @@
 package com.socialblackjack.game.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
+import com.socialblackjack.game.PlayerStatusEnumeration;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDateTime;
 
-import com.socialblackjack.game.PlayerStatusEnumeration;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "game_table_player")

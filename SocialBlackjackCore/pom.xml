@@ -6,6 +6,5 @@
         <artifactId>Blackjack</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-	<artifactId>SocialBlackjackCore</artifactId>
-
+	<artifactId>core</artifactId>
 </project>

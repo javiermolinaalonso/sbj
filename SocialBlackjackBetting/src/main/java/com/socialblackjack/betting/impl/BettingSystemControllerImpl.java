@@ -1,10 +1,5 @@
 package com.socialblackjack.betting.impl;
 
-import java.util.HashMap;
-import java.util.List;
-
-import org.springframework.stereotype.Component;
-
 import com.socialblackjack.betting.BettingSystemController;
 import com.socialblackjack.betting.exceptions.MaximumBetExceededException;
 import com.socialblackjack.betting.exceptions.MaximumPlayerCoinsExceededException;
@@ -12,6 +7,10 @@ import com.socialblackjack.betting.exceptions.MinimumBetExceededException;
 import com.socialblackjack.game.Game;
 import com.socialblackjack.game.GameOptionsEnumeration;
 import com.socialblackjack.game.entities.Player;
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.List;
 
 @Component
 public class BettingSystemControllerImpl implements BettingSystemController {
@@ -73,7 +72,7 @@ public class BettingSystemControllerImpl implements BettingSystemController {
 	public void printStatus(){
 		System.out.println("Current bets: ");
 		for(Player p : playersBet.keySet()){
-			System.out.println("The player " + p.getName() + " has bet " + playersBet.get(p) + " and his options are: "+game.getGameOptions(p));
+			System.out.println("The player " + p.getNickname() + " has bet " + playersBet.get(p) + " and his options are: "+game.getGameOptions(p));
 		}
 	}
 

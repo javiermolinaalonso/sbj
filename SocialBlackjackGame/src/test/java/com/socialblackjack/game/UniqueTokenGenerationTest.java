@@ -1,12 +1,11 @@
 package com.socialblackjack.game;
 
-import static org.junit.Assert.assertEquals;
-
+import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.game.service.impl.TableServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.socialblackjack.game.entities.Player;
-import com.socialblackjack.game.service.impl.TableServiceImpl;
+import static org.junit.Assert.assertEquals;
 
 public class UniqueTokenGenerationTest {
 
@@ -23,7 +22,7 @@ public class UniqueTokenGenerationTest {
 		String tabletoken = "fj983kasjfkzñckvj";
 		Long tst = 234052893475l;
 		
-		assertEquals("6e56c99ff324ad670765c775c95a7e94c49b3b66afe1d8f757e9ee97bd1e09a5", tableService.generateUniqueToken(tabletoken, player, tst));
+		assertEquals("33bd66fd114d6a58a082c1eb614667ccd4f22825313065fda6e4eeb2766b0d2d", tableService.generateUniqueToken(tabletoken, player, tst));
 	}
 
 }

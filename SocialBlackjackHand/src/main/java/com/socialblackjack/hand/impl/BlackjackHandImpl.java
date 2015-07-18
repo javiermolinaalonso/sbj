@@ -1,15 +1,11 @@
 package com.socialblackjack.hand.impl;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 import com.socialblackjack.core.Card;
 import com.socialblackjack.core.exceptions.MaximumCardsReached;
 import com.socialblackjack.hand.BlackjackHand;
 import com.socialblackjack.hand.utils.HandUtils;
+
+import java.util.*;
 
 public abstract class BlackjackHandImpl implements BlackjackHand {
 
@@ -29,7 +25,7 @@ public abstract class BlackjackHandImpl implements BlackjackHand {
 		cards.add(card);
 	}
 
-	public <T extends Number> Integer getHigherValue() {
+	public Integer getHigherValue() {
 		Integer max = 0;
 		for(Integer v : getValues()){
 			max = Math.max(max, v);
@@ -37,7 +33,6 @@ public abstract class BlackjackHandImpl implements BlackjackHand {
 		return max;
 	}
 
-	@SuppressWarnings("unchecked")
 	public Collection<Integer> getValues() {
 		if(cards == null)
 			return new ArrayList<Integer>();
@@ -73,6 +68,6 @@ public abstract class BlackjackHandImpl implements BlackjackHand {
 	}
 
 	public boolean isSoft() {
-		return cards.get(0).getRank().equals("A") || cards.get(1).getRank().equals("A");
+		return cards.get(0).getRank().equals(Card.ACE) || cards.get(1).getRank().equals(Card.ACE);
 	}
 }
