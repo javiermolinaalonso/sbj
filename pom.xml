@@ -25,10 +25,10 @@
         <module>SocialBlackjackCore</module>
         <module>SocialBlackjackEvaluator</module>
         <module>SocialBlackjackGame</module>
-        <!--<module>SocialBlackjackGameController</module>-->
+        <module>SocialBlackjackGameController</module>
         <module>SocialBlackjackHand</module>
         <!--<module>SocialBlackjackPlaying</module>-->
-        <!--<module>SocialBlackjackSitting</module>-->
+        <module>SocialBlackjackSitting</module>
 
     </modules>
 
