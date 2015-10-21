@@ -1,4 +1,4 @@
-package com.socialblakcjack.gamecontroller;
+package com.socialblackjack.gamecontroller;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

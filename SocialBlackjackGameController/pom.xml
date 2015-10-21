@@ -7,7 +7,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>gamecontroller</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<description>This module will receive and evaluate the end of a round</description>
 
 	<name>gamecontroller</name>

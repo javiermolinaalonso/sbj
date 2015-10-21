@@ -1,4 +1,4 @@
-package com.socialblakcjack.gamecontroller;
+package com.socialblackjack.gamecontroller;
 
 import com.socialblackjack.game.entities.GameTable;
 import com.socialblackjack.game.entities.Player;

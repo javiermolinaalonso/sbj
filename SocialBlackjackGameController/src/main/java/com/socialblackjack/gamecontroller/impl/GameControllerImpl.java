@@ -1,16 +1,15 @@
-package com.socialblakcjack.gamecontroller.impl;
+package com.socialblackjack.gamecontroller.impl;
 
 import com.socialblackjack.game.entities.GameTable;
 import com.socialblackjack.game.entities.Player;
 import com.socialblackjack.game.service.TableService;
-import com.socialblakcjack.gamecontroller.GameController;
-import org.springframework.stereotype.Controller;
+import com.socialblackjack.gamecontroller.GameController;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/v01/rest/")
 public class GameControllerImpl implements GameController {
 

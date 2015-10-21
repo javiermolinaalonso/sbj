@@ -1,23 +1,22 @@
 package com.socialblackjack.sitting.impl;
 
-import java.util.Calendar;
-
-import javax.inject.Inject;
-
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
-
 import com.socialblackjack.game.State;
 import com.socialblackjack.game.entities.Player;
 import com.socialblackjack.game.service.TableService;
 import com.socialblackjack.sitting.CheckTableExist;
 import com.socialblackjack.sitting.SittingSystemController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import javax.inject.Inject;
+import java.util.Calendar;
 
 @Service
 public class SittingService implements SittingSystemController, State{
 
 	@SuppressWarnings("unused")
-	private static Logger logger = Logger.getLogger(SittingService.class);
+	private static Logger logger = LoggerFactory.getLogger(SittingService.class);
 	
 	@Inject private TableService tableService;
 	

@@ -1,15 +1,5 @@
 package com.socialblackjack.game.impl;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import com.socialblackjack.core.Card;
 import com.socialblackjack.core.Hand;
 import com.socialblackjack.game.BlackjackGame;
@@ -22,6 +12,11 @@ import com.socialblackjack.game.exceptions.IllegalActionException;
 import com.socialblackjack.hand.BlackjackHand;
 import com.socialblackjack.hand.impl.BlackjackHandDealer;
 import com.socialblackjack.hand.impl.BlackjackHandPlayer;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
+import java.util.*;
 
 @Component
 @Scope("prototype")
@@ -36,15 +31,15 @@ public class BlackjackGameImpl extends GameImpl implements BlackjackGame, Serial
 	private List<Player> insurances;
 	
 	private BlackjackHand dealerHand;
-	
-	//private tablerules
+
+	//TODO We need to pass the table, the players and, in general, all the status
 	public BlackjackGameImpl(){
 		super();
-		players = new HashMap<Player, List<BlackjackHand>>();
-		playersAvailableOptions = new HashMap<Player, List<GameOptionsEnumeration>>();
-		handAvailableOptions = new HashMap<BlackjackHand, List<GameOptionsEnumeration>>();
-		historicalActions = new HashMap<BlackjackHand, List<GameOptionsEnumeration>>();
-		insurances = new ArrayList<Player>();
+		players = new HashMap<>();
+		playersAvailableOptions = new HashMap<>();
+		handAvailableOptions = new HashMap<>();
+		historicalActions = new HashMap<>();
+		insurances = new ArrayList<>();
 	}
 	
 	public void deal() {
@@ -54,7 +49,23 @@ public class BlackjackGameImpl extends GameImpl implements BlackjackGame, Serial
 			updatePlayersOptions();
 		}
 	}
-	
+
+	private void prepareDeal(){
+		//TODO Implement shuffling system that shuffle only if necessary
+		deck.shuffle();
+		players.clear(); //Remove any possible rubbish
+		for(Player p : seatPlayers){
+			if(p != null){
+				List<BlackjackHand> hands = new ArrayList<>();
+				BlackjackHand hand = new BlackjackHandPlayer();
+				hands.add(hand);
+				historicalActions.put(hand, new ArrayList<>());
+				players.put(p, hands);
+			}
+		}
+		dealerHand = new BlackjackHandDealer();
+	}
+
 	private void dealRound(){
 		dealPlayers();
 		dealerHand.addCard(deck.getFirst());
@@ -69,23 +80,7 @@ public class BlackjackGameImpl extends GameImpl implements BlackjackGame, Serial
 			}
 		}
 	}
-	
-	private void prepareDeal(){
-		//TODO Implement shuffling system that shuffle only if necessary
-		deck.shuffle();
-		players.clear(); //Remove any possible rubbish
-		for(Player p : seatPlayers){
-			if(p != null){
-				List<BlackjackHand> hands = new ArrayList<BlackjackHand>();
-				BlackjackHand hand = new BlackjackHandPlayer();
-				hands.add(hand);
-				historicalActions.put(hand, new ArrayList<GameOptionsEnumeration>());
-				players.put(p, hands);
-			}
-		}
-		dealerHand = new BlackjackHandDealer();
-	}
-	
+
 	@BlackjackAction(action = GameOptionsEnumeration.HIT)
 	public void hit(@CurrentHand BlackjackHand hand, @CurrentPlayer Player player) throws IllegalActionException {
 		hand.addCard(deck.getFirst());

@@ -1,14 +1,15 @@
 package com.socialblackjack.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
-
 public class StringUtils {
-	private final static Logger log = Logger.getLogger(StringUtils.class);
+	private final static Logger log = LoggerFactory.getLogger(StringUtils.class);
 	
 	public static final String HASHING_SHA256 = "SHA-256";
 	   

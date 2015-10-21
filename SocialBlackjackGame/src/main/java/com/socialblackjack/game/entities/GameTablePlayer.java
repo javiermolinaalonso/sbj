@@ -2,7 +2,6 @@ package com.socialblackjack.game.entities;
 
 import com.socialblackjack.game.PlayerStatusEnumeration;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -63,7 +62,6 @@ public class GameTablePlayer {
 	}
 
 	@Column(name = "entry_date")
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
 	public LocalDateTime getEntryDate() {
 		return entryDate;
 	}
@@ -73,7 +71,6 @@ public class GameTablePlayer {
 	}
 
 	@Column(name = "exit_date")
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
 	public LocalDateTime getExitDate() {
 		return exitDate;
 	}

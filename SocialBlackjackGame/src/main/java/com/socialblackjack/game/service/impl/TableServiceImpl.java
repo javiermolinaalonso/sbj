@@ -1,13 +1,5 @@
 package com.socialblackjack.game.service.impl;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.socialblackjack.game.PlayerStatusEnumeration;
 import com.socialblackjack.game.dao.GameTableDao;
 import com.socialblackjack.game.dao.PlayerDao;
@@ -20,12 +12,19 @@ import com.socialblackjack.game.exceptions.TableException;
 import com.socialblackjack.game.impl.GameImpl;
 import com.socialblackjack.game.service.TableService;
 import com.socialblackjack.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.inject.Inject;
+import java.util.List;
 
 @Service
 @Transactional
 public class TableServiceImpl implements TableService {
 
-	private static final Logger logger = Logger
+	private static final Logger logger = LoggerFactory
 			.getLogger(TableServiceImpl.class);
 
 	@Inject

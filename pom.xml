@@ -8,9 +8,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <log4j.version>1.2.16</log4j.version>
+        <log4j.version>2.0</log4j.version>
         <junit.version>4.10</junit.version>
-        <spring.version>3.2.4.RELEASE</spring.version>
+        <spring.version>4.0.9.RELEASE</spring.version>
         <aspectjrt.version>1.6.11</aspectjrt.version>
         <cglib.version>2.2.2</cglib.version>
         <tomcat-dbcp.version>7.0.41</tomcat-dbcp.version>
@@ -19,6 +19,7 @@
         <postgresql.version>9.1-901.jdbc4</postgresql.version>
         <jackson-mapper-asl.version>1.9.9</jackson-mapper-asl.version>
         <commons-lang3.version>3.4</commons-lang3.version>
+        <logback-classic.version>1.1.2</logback-classic.version>
     </properties>
     <modules>
         <!--<module>SocialBlackjackBetting</module>-->
@@ -186,6 +187,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -194,10 +200,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
