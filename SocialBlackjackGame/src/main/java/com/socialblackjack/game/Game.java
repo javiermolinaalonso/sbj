@@ -2,8 +2,7 @@ package com.socialblackjack.game;
 
 import java.util.List;
 
-import com.socialblackjack.core.Hand;
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.Player;
 
 public interface Game {
 

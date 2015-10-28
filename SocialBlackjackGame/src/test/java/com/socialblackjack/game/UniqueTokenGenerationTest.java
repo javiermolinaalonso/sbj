@@ -1,6 +1,6 @@
 package com.socialblackjack.game;
 
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.Player;
 import com.socialblackjack.game.service.impl.TableServiceImpl;
 import org.junit.Before;
 import org.junit.Test;

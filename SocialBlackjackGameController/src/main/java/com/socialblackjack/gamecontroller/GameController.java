@@ -1,7 +1,7 @@
 package com.socialblackjack.gamecontroller;
 
-import com.socialblackjack.game.entities.GameTable;
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.GameTable;
+import com.socialblackjack.entities.Player;
 
 import java.util.List;
 

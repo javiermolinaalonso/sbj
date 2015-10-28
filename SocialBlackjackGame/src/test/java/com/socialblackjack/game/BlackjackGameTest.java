@@ -1,16 +1,14 @@
 package com.socialblackjack.game;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.socialblackjack.game.entities.Player;
-import com.socialblackjack.game.exceptions.InvalidSeatException;
+import com.socialblackjack.entities.Player;
 import com.socialblackjack.game.exceptions.SeatOccupiedException;
 import com.socialblackjack.game.exceptions.TableFullException;
 import com.socialblackjack.game.impl.BlackjackGameImpl;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BlackjackGameTest {
 

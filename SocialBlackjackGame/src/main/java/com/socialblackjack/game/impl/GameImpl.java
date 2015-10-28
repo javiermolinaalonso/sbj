@@ -3,8 +3,8 @@ package com.socialblackjack.game.impl;
 import com.socialblackjack.core.Deck;
 import com.socialblackjack.core.impl.DeckImpl;
 import com.socialblackjack.game.Game;
-import com.socialblackjack.game.entities.Player;
-import com.socialblackjack.game.exceptions.InvalidSeatException;
+import com.socialblackjack.entities.Player;
+import com.socialblackjack.dao.exceptions.InvalidSeatException;
 import com.socialblackjack.game.exceptions.SeatOccupiedException;
 import com.socialblackjack.game.exceptions.TableFullException;
 

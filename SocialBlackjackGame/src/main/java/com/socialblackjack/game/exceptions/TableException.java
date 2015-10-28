@@ -1,6 +1,6 @@
 package com.socialblackjack.game.exceptions;
 
-import com.socialblackjack.game.enumerations.TableExceptionCodeEnum;
+import com.socialblackjack.dao.exceptions.code.TableExceptionCodeEnum;
 
 public class TableException extends RuntimeException {
 
