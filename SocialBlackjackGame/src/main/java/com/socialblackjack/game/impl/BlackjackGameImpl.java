@@ -7,7 +7,7 @@ import com.socialblackjack.game.GameOptionsEnumeration;
 import com.socialblackjack.game.annotations.BlackjackAction;
 import com.socialblackjack.game.annotations.CurrentHand;
 import com.socialblackjack.game.annotations.CurrentPlayer;
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.Player;
 import com.socialblackjack.game.exceptions.IllegalActionException;
 import com.socialblackjack.hand.BlackjackHand;
 import com.socialblackjack.hand.impl.BlackjackHandDealer;

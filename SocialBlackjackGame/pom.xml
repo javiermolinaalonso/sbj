@@ -65,10 +65,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
 		</dependency>
@@ -84,6 +80,14 @@
 			<groupId>com.socialblackjack</groupId>
 			<artifactId>hand</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>com.socialblackjack</groupId>
+            <artifactId>dao</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.socialblackjack</groupId>
+            <artifactId>entities</artifactId>
+        </dependency>
 	</dependencies>
 
 </project>

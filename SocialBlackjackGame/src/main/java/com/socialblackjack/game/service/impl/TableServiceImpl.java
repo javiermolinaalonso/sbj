@@ -1,13 +1,13 @@
 package com.socialblackjack.game.service.impl;
 
-import com.socialblackjack.game.PlayerStatusEnumeration;
-import com.socialblackjack.game.dao.GameTableDao;
-import com.socialblackjack.game.dao.PlayerDao;
-import com.socialblackjack.game.entities.GameTable;
-import com.socialblackjack.game.entities.Player;
-import com.socialblackjack.game.enumerations.PlayerExceptionCodeEnum;
-import com.socialblackjack.game.enumerations.TableExceptionCodeEnum;
-import com.socialblackjack.game.exceptions.PlayerException;
+import com.socialblackjack.dao.GameTableDao;
+import com.socialblackjack.dao.PlayerDao;
+import com.socialblackjack.entities.GameTable;
+import com.socialblackjack.entities.Player;
+import com.socialblackjack.entities.enums.PlayerStatusEnumeration;
+import com.socialblackjack.dao.exceptions.code.PlayerExceptionCodeEnum;
+import com.socialblackjack.dao.exceptions.code.TableExceptionCodeEnum;
+import com.socialblackjack.dao.exceptions.PlayerException;
 import com.socialblackjack.game.exceptions.TableException;
 import com.socialblackjack.game.impl.GameImpl;
 import com.socialblackjack.game.service.TableService;
@@ -79,7 +79,7 @@ public class TableServiceImpl implements TableService {
 		}
 		Player player = playerDao.loadPlayer(playerToken);
 		if (player == null) {
-			throw new PlayerException(PlayerExceptionCodeEnum.P001);
+			throw new PlayerException(PlayerExceptionCodeEnum.PLAYER_NOT_EXISTS);
 		}
 		// Is the player in the table?
 		List<Player> playersInTable = getPlayers(table);
@@ -90,7 +90,11 @@ public class TableServiceImpl implements TableService {
 	}
 
 	public void sitOutPlayer(String playerToken, String table) {
-		tableDao.sitOutPlayer(playerToken, table);
+		Player player = playerDao.loadPlayer(playerToken);
+		if (player == null) {
+			throw new PlayerException(PlayerExceptionCodeEnum.PLAYER_NOT_EXISTS);
+		}
+		tableDao.sitOutPlayer(player.getId(), table);
 	}
 
 	public void cancelSitoutPlayer(String playerToken, String table) {

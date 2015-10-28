@@ -30,6 +30,9 @@
         <module>SocialBlackjackHand</module>
         <!--<module>SocialBlackjackPlaying</module>-->
         <module>SocialBlackjackSitting</module>
+        <module>SocialBlackjackDao</module>
+        <module>SocialBlackjackEntities</module>
+        <module>SocialBlackjackDaoPostgre</module>
 
     </modules>
 
@@ -73,6 +76,16 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>gamecontroller</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>entities</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -157,11 +170,6 @@
                 <version>${tomcat-dbcp.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>${hibernate-core.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.javassist</groupId>
                 <artifactId>javassist</artifactId>
                 <version>${javassist.version}</version>
@@ -204,7 +212,6 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>

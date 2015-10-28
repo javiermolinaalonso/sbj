@@ -1,17 +1,16 @@
 package com.socialblackjack.game;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.socialblackjack.entities.Player;
+import com.socialblackjack.game.impl.BlackjackGameImpl;
+import com.socialblackjack.hand.BlackjackHand;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.socialblackjack.game.entities.Player;
-import com.socialblackjack.game.impl.BlackjackGameImpl;
-import com.socialblackjack.hand.BlackjackHand;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameTests {
 

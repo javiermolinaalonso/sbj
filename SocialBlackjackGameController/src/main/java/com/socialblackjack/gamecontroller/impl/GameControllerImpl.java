@@ -1,7 +1,7 @@
 package com.socialblackjack.gamecontroller.impl;
 
-import com.socialblackjack.game.entities.GameTable;
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.GameTable;
+import com.socialblackjack.entities.Player;
 import com.socialblackjack.game.service.TableService;
 import com.socialblackjack.gamecontroller.GameController;
 import org.springframework.web.bind.annotation.*;

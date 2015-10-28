@@ -1,7 +1,7 @@
 package com.socialblackjack.sitting.impl;
 
 import com.socialblackjack.game.State;
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.Player;
 import com.socialblackjack.game.service.TableService;
 import com.socialblackjack.sitting.CheckTableExist;
 import com.socialblackjack.sitting.SittingSystemController;

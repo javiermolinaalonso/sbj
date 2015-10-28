@@ -1,6 +1,6 @@
 package com.socialblackjack.sitting;
 
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.Player;
 
 /**
  * This class is the controller for one table instance which is 
