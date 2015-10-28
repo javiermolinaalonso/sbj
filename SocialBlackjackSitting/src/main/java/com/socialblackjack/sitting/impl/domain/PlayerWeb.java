@@ -1,6 +1,6 @@
 package com.socialblackjack.sitting.impl.domain;
 
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.Player;
 
 public class PlayerWeb extends Player {
 

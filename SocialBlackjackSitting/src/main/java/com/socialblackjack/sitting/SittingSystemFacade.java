@@ -1,7 +1,7 @@
 package com.socialblackjack.sitting;
 
-import com.socialblackjack.game.entities.Player;
-import com.socialblackjack.game.entities.GameTable;
+import com.socialblackjack.entities.Player;
+import com.socialblackjack.entities.GameTable;
 
 public interface SittingSystemFacade {
 
