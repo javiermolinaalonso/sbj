@@ -4,9 +4,9 @@ import com.socialblackjack.betting.BettingSystemController;
 import com.socialblackjack.betting.exceptions.MaximumBetExceededException;
 import com.socialblackjack.betting.exceptions.MaximumPlayerCoinsExceededException;
 import com.socialblackjack.betting.exceptions.MinimumBetExceededException;
+import com.socialblackjack.entities.Player;
 import com.socialblackjack.game.Game;
 import com.socialblackjack.game.GameOptionsEnumeration;
-import com.socialblackjack.game.entities.Player;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

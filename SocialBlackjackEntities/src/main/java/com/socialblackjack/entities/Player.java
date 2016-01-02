@@ -20,14 +20,17 @@ public class Player {
 	public Player(){
 		
 	}
-	
-	public Player(String firstName, String lastName, String nickname,
-			Double coins) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+
+	public Player(String nickname, Double coins) {
+		this();
 		this.nickname = nickname;
 		this.coins = coins;
+	}
+	public Player(String firstName, String lastName, String nickname,
+			Double coins) {
+		this(nickname, coins);
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public void doTakeMoney(Double amount){

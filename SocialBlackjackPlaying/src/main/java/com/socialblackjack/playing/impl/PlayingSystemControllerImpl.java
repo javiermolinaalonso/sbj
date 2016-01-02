@@ -1,16 +1,16 @@
 package com.socialblackjack.playing.impl;
 
-import org.apache.log4j.Logger;
-
+import com.socialblackjack.entities.Player;
 import com.socialblackjack.game.BlackjackGame;
 import com.socialblackjack.game.State;
-import com.socialblackjack.game.entities.Player;
 import com.socialblackjack.hand.BlackjackHand;
 import com.socialblackjack.playing.PlayingSystemController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PlayingSystemControllerImpl implements PlayingSystemController, State {
 
-	private static Logger logger = Logger.getLogger(PlayingSystemControllerImpl.class);
+	private static Logger logger = LoggerFactory.getLogger(PlayingSystemControllerImpl.class);
 	
 	private BlackjackGame game; //The same game that Sitting and Betting system have
 	
@@ -42,4 +42,8 @@ public class PlayingSystemControllerImpl implements PlayingSystemController, Sta
 		game.insurance(player);
 	}
 
+	@Override
+	public void start(String table) {
+
+	}
 }

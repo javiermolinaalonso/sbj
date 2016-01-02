@@ -1,5 +1,6 @@
 package com.socialblackjack.dao.impl;
 
+import com.socialblackjack.dao.GameTableDao;
 import com.socialblackjack.dao.config.DaoConfig;
 import com.socialblackjack.dao.exceptions.PlayerException;
 import com.socialblackjack.dao.exceptions.code.PlayerExceptionCodeEnum;
@@ -20,7 +21,7 @@ public class GameTableDaoImplTest {
     public static final String TABLE = "table";
 
     @Autowired
-    private GameTableDaoImpl gameTableDaoImpl;
+    private GameTableDao gameTableDaoImpl;
 
     @Test(expected = PlayerException.class)
     public void testUpdateNonExistingPlayerExpectPlayerException() {
@@ -32,6 +33,7 @@ public class GameTableDaoImplTest {
         } catch (PlayerException e) {
             //Then
             Assert.assertEquals(PlayerExceptionCodeEnum.PLAYER_NOT_IN_TABLE, e.getCode());
+            throw e;
         }
     }
 }

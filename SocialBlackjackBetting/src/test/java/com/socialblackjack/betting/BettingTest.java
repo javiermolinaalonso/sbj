@@ -1,15 +1,14 @@
 package com.socialblackjack.betting;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.socialblackjack.betting.exceptions.BettingException;
+import com.socialblackjack.betting.impl.BettingSystemControllerImpl;
+import com.socialblackjack.entities.Player;
+import com.socialblackjack.game.impl.BlackjackGameImpl;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.socialblackjack.betting.exceptions.BettingException;
-import com.socialblackjack.betting.impl.BettingSystemControllerImpl;
-import com.socialblackjack.game.entities.Player;
-import com.socialblackjack.game.impl.BlackjackGameImpl;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BettingTest {
 
@@ -22,7 +21,7 @@ public class BettingTest {
 		betting.setGame(new BlackjackGameImpl());
 		betting.setMaxBet(300d);
 		betting.setMinBet(50d);
-		players = new ArrayList<Player>();
+		players = new ArrayList<>();
 		players.add(new Player("Galaxy", 500d));
 		players.add(new Player("Sensation", 300d));
 		players.add(new Player("Xperia", 60d));

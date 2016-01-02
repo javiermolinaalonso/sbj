@@ -17,8 +17,7 @@ public class GameControllerImpl implements GameController {
     private TableService tableService;
 
     @RequestMapping(value="gametables", method= RequestMethod.GET, produces = "application/json")
-    public @ResponseBody
-    List<GameTable> getTables(){
+    public @ResponseBody List<GameTable> getTables(){
         return tableService.getTables();
     }
 

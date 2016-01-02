@@ -3,7 +3,7 @@ package com.socialblackjack.betting;
 import com.socialblackjack.betting.exceptions.MaximumBetExceededException;
 import com.socialblackjack.betting.exceptions.MaximumPlayerCoinsExceededException;
 import com.socialblackjack.betting.exceptions.MinimumBetExceededException;
-import com.socialblackjack.game.entities.Player;
+import com.socialblackjack.entities.Player;
 
 public interface BettingSystemController {
 
@@ -15,11 +15,11 @@ public interface BettingSystemController {
 	 * @throws MinimumBetExceededException If the player bet less coins than allowed for the table
 	 * @throws MaximumPlayerCoinsExceededException If the player attempts to put more money than he have
 	 */
-	public void placeBet(Player player, Double bet) throws MaximumBetExceededException, MinimumBetExceededException, MaximumPlayerCoinsExceededException;
+	void placeBet(Player player, Double bet) throws MaximumBetExceededException, MinimumBetExceededException, MaximumPlayerCoinsExceededException;
 	
 	/**
 	 * Cancels a bet if the player previously did 
 	 * @param player
 	 */
-	public void cancelBet(Player player);
+	void cancelBet(Player player);
 }
